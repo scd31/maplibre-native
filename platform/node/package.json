@@ -58,12 +58,19 @@
     "node": ">=18"
   },
   "scripts": {
-    "install": "node-pre-gyp install",
+    "install": "node-pre-gyp install --prefer-offline --build-from-source",
     "test": "tape test/js/**/*.test.js",
     "test-memory": "node --expose-gc test/memory.test.js",
     "test-expressions": "node -r esm test/expression.test.js",
     "test-render": "node -r esm test/render.test.js",
     "test-query": "node -r esm test/query.test.js"
   },
-  "binary": {}
+  "gypfile": true,
+  "binary": {
+    "module_name": "mbgl",
+    "module_path": "./lib/{node_abi}",
+    "host": "https://github.com/maplibre/maplibre-native/releases/download/",
+    "remote_path": "node-v{version}",
+    "package_name": "{node_abi}-{platform}-{arch}-{configuration}.tar.gz"
+  }
 }
