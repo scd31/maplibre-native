@@ -64,5 +64,6 @@
     "test-expressions": "node -r esm test/expression.test.js",
     "test-render": "node -r esm test/render.test.js",
     "test-query": "node -r esm test/query.test.js"
-  }
+  },
+  "binary": {}
 }
